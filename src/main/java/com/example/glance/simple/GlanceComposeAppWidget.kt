@@ -1,4 +1,4 @@
-package com.example.glance.tiny
+package com.example.glance.simple
 
 import android.content.Context
 import androidx.compose.runtime.Composable
@@ -35,7 +35,6 @@ import androidx.glance.layout.padding
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import com.example.glance.R
-import com.example.glance.simple.GlanceWidgetActivity
 
 class GlanceComposeAppWidget : GlanceAppWidget() {
 

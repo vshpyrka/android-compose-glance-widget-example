@@ -6,7 +6,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.GlanceAppWidgetReceiver
-import com.example.glance.tiny.GlanceComposeAppWidget
 
 class GlanceAppWidgetReceiver : GlanceAppWidgetReceiver() {
 
