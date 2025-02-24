@@ -34,6 +34,7 @@ import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.padding
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
+import androidx.glance.unit.ColorProvider
 import com.example.glance.R
 
 class GlanceComposeAppWidget : GlanceAppWidget() {
@@ -53,9 +54,7 @@ class GlanceComposeAppWidget : GlanceAppWidget() {
 @Composable
 fun GlanceComposeAppWidgetContent() {
     val context = LocalContext.current
-    println("AAA context $context")
-    val drawable = ContextCompat.getDrawable(context, R.drawable.ic_heart_broken)
-    println("AAA drawable $drawable")
+    val drawable = ContextCompat.getDrawable(context, R.drawable.ic_arrow)
 
     var error by remember { mutableStateOf(false) }
     if (!error) {
@@ -71,42 +70,45 @@ fun GlanceComposeAppWidgetContent() {
             Column(
                 modifier = GlanceModifier
                     .fillMaxSize(),
-                verticalAlignment = Alignment.Top,
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(
                     text = "Glance App Widget",
-                    modifier = GlanceModifier.padding(12.dp),
+                    modifier = GlanceModifier.padding(8.dp),
                     style = TextStyle(color = GlanceTheme.colors.onSurface)
+                )
+                var isChecked by remember { mutableStateOf(false) }
+                CheckBox(
+                    modifier = GlanceModifier.padding(8.dp),
+                    text = "Checkbox",
+                    checked = isChecked,
+                    onCheckedChange = {
+                        isChecked = !isChecked
+                    }
                 )
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Button(
-                        text = "Open Home",
+                        modifier = GlanceModifier.padding(8.dp),
+                        text = "Open Activity",
                         onClick = actionStartActivity<GlanceWidgetActivity>()
                     )
                     Button(
-                        text = "Display error",
+                        modifier = GlanceModifier.padding(8.dp),
+                        text = "Display an error",
                         onClick = {
                             error = true
                         }
                     )
                     Button(
+                        modifier = GlanceModifier.padding(8.dp),
+                        text = "Handle ActionRunCallback",
                         onClick = actionRunCallback<ButtonActionRunCallback>(
                             parameters = actionParametersOf(
                                 actionWidgetKey to "log event"
                             )
                         ),
-                        text = "ActionRunCallback"
-                    )
-                    var isChecked by remember { mutableStateOf(false) }
-                    CheckBox(
-                        text = "Checkbox",
-                        checked = isChecked,
-                        onCheckedChange = {
-                            isChecked = !isChecked
-                        }
                     )
                 }
             }
@@ -131,7 +133,11 @@ private fun GlanceWidgetError(
             .clickable { onClick() },
         contentAlignment = Alignment.Center,
     ) {
-        Text(text = "Error", modifier = GlanceModifier.padding(12.dp))
+        Text(
+            modifier = GlanceModifier.padding(12.dp),
+            text = "Error",
+            style = TextStyle(color = ColorProvider(Color.White))
+        )
     }
 }
 
