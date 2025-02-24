@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <receiver
+            android:name="com.example.glance.simple.GlanceAppWidgetReceiver"
+            android:exported="true"
+            android:label="@string/app_widget_glance_example">
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/app_widget_info" />
+        </receiver>
+
+        <receiver
+            android:name="com.example.glance.error.GlanceAppComposeErrorWidgetReceiver"
+            android:exported="true"
+            android:label="@string/app_widget_composition_error">
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.glance.action.APPWIDGET_ERROR" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/app_widget_error_info" />
+        </receiver>
+
+        <receiver
+            android:name="com.example.glance.configurable.GlanceAppConfigurableWidgetReceiver"
+            android:exported="true"
+            android:label="@string/app_widget_configurable">
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE_OPTIONS" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/app_configurable_widget_info" />
+        </receiver>
+
+        <receiver
+            android:name="com.example.glance.tiny.GlanceAppTinyWidgetReceiver"
+            android:exported="true"
+            android:label="@string/app_widget_non_resizable">
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/app_tiny_widget_info" />
+        </receiver>
+
+        <receiver
+            android:name="com.example.glance.resizable.GlanceAppResizableWidgetReceiver"
+            android:exported="true"
+            android:label="@string/app_widget_resizable">
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/app_resizable_widget_info" />
+        </receiver>
+
+        <receiver
+            android:name="com.example.glance.pinned.GlanceAppPinnedWidgetReceiver"
+            android:exported="true"
+            android:label="@string/app_widget_pinned_example">
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/app_pinned_widget_info" />
+        </receiver>
+
+        <activity
+            android:name="com.example.glance.simple.GlanceWidgetActivity"
+            android:exported="true" />
+
+        <activity
+            android:name="com.example.glance.error.GlanceWidgetErrorActivity"
+            android:exported="true" />
+
+        <activity
+            android:name="com.example.glance.configurable.GlanceWidgetConfigActivity"
+            android:exported="true"
+            android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name="com.example.glance.pinned.GlanceAppPinResultWidgetReceiver"
+            android:exported="true">
+
+        </receiver>
+
+        <activity
+            android:name="com.example.glance.pinned.GlancePinnedWidgetActivity"
+            android:exported="true" />
+
+        <activity
+            android:name="com.example.glance.pinned.GlancePinnedWidgetConfigActivity"
+            android:exported="true" />
+    </application>
+</manifest>
