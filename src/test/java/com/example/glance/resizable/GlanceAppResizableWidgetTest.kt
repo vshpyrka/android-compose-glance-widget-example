@@ -26,7 +26,7 @@ class GlanceAppResizableWidgetTest {
 
     @Test
     fun testResponsiveGlanceWidgetSmall() = runGlanceAppWidgetUnitTest{
-        setAppWidgetSize(DpSize(100.dp, 100.dp))
+        setAppWidgetSize(DpSize(128.dp, 128.dp))
         provideComposable {
             //  Override the LocalContext with the Robolectric context to access resources via Context class
             CompositionLocalProvider(LocalContext provides RuntimeEnvironment.getApplication()) {
@@ -40,7 +40,7 @@ class GlanceAppResizableWidgetTest {
 
     @Test
     fun testResponsiveGlanceWidgetNormal() = runGlanceAppWidgetUnitTest{
-        setAppWidgetSize(DpSize(250.dp, 200.dp))
+        setAppWidgetSize(DpSize(200.dp, 200.dp))
         provideComposable {
             //  Override the LocalContext with the Robolectric context to access resources via Context class
             CompositionLocalProvider(LocalContext provides RuntimeEnvironment.getApplication()) {
@@ -61,7 +61,7 @@ class GlanceAppResizableWidgetTest {
 
     @Test
     fun testResponsiveGlanceWidgetWide() = runGlanceAppWidgetUnitTest{
-        setAppWidgetSize(DpSize(350.dp, 200.dp))
+        setAppWidgetSize(DpSize(300.dp, 200.dp))
         provideComposable {
             //  Override the LocalContext with the Robolectric context to access resources via Context class
             CompositionLocalProvider(LocalContext provides RuntimeEnvironment.getApplication()) {

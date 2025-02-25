@@ -62,7 +62,7 @@ fun GlanceComposeAppWidgetContent() {
             titleBar = {
                 TitleBar(
                     startIcon = ImageProvider(R.drawable.ic_arrow),
-                    title = "Glance App Widget",
+                    title = "Widget Title",
                 )
             },
             backgroundColor = GlanceTheme.colors.widgetBackground
